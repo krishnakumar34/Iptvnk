@@ -1,0 +1,17 @@
+name: iptv_flutter_starter
+description: A simple IPTV player starter template using better_player.
+publish_to: 'none'
+version: 0.0.1
+environment:
+  sdk: ">=2.18.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  better_player: ^0.0.83
+  http: ^1.2.0
+  shared_preferences: ^2.0.15
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
