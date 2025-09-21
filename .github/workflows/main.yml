@@ -12,17 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout repo
-      - name: Checkout code
+      # Step 1: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Setup Flutter
+      # Step 2: Setup Flutter SDK
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.22.0"
 
-      # Step 3: Get dependencies
+      # Step 3: Install dependencies
       - name: Flutter Pub Get
         run: flutter pub get
 
@@ -30,20 +30,4 @@ jobs:
       - name: Build Release APK
         run: flutter build apk --release
 
-      # Step 5: Build release AAB
-      - name: Build Release AAB
-        run: flutter build appbundle --release
-
-      # Step 6: Upload APK artifact
-      - name: Upload APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
-
-      # Step 7: Upload AAB artifact
-      - name: Upload AAB
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-aab
-          path: build/app/outputs/bundle/release/app-release.aab
+      # Step 5: Build release AA
