@@ -1,4 +1,4 @@
-herename: Flutter CI - APK & AAB Build
+name: Flutter CI - APK & AAB Build
 
 on:
   push:
