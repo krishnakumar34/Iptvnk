@@ -1,0 +1,33 @@
+herename: Flutter CI - APK & AAB Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Flutter SDK
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.22.0"
+
+      # Step 3: Install dependencies
+      - name: Flutter Pub Get
+        run: flutter pub get
+
+      # Step 4: Build release APK
+      - name: Build Release APK
+        run: flutter build apk --release
+
+      # Step 5: Build release AA
